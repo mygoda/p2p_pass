@@ -1,0 +1,1 @@
+gunicorn -b 0.0.0.0:7777 --workers=4 --log-file error.log wsgi:application&

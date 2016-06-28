@@ -1,0 +1,91 @@
+INFO 2016-06-17 14:51:58,363 tasks 89512 140735228776448 /Users/tao-xu/Downloads/vCenter/paas/applications/stat/tasks.py 84 vm_to_tpl start vm:None to tpl:CDS-OS-Redhat5.9-64bit-General-V00284716-33b4-11e6-bc0e-507b9d5bc407
+INFO 2016-06-17 14:53:14,146 tasks 89512 140735228776448 /Users/tao-xu/Downloads/vCenter/paas/applications/stat/tasks.py 111 vm_to_tpl vm_to_tpl when catch exception:Traceback (most recent call last):
+  File "/Users/tao-xu/Downloads/vCenter/paas/applications/stat/tasks.py", line 86, in vm_to_tpl
+    datacenter_name=data_center, cluster=cluster, datastore=data_store)
+  File "/Users/tao-xu/Downloads/vCenter/paas/libs/vcenter.py", line 318, in vm_to_template
+    si = connect_vcenter(host=host, username=username, password=password)
+  File "/Users/tao-xu/Downloads/vCenter/paas/libs/vcenter.py", line 133, in connect_vcenter
+    si = SmartConnect(host=host, user=username, pwd=password, port=443, sslContext=CONTEXT)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/pyVim/connect.py", line 663, in SmartConnect
+    sslContext)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/pyVim/connect.py", line 552, in __FindSupportedVersion
+    sslContext)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/pyVim/connect.py", line 472, in __GetServiceVersionDescription
+    tree = __GetElementTreeFromUrl(url, sslContext)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/pyVim/connect.py", line 438, in __GetElementTreeFromUrl
+    sock = requests.get(url, verify=False)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/requests/api.py", line 67, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/requests/api.py", line 53, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/requests/sessions.py", line 468, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/requests/sessions.py", line 576, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/requests/adapters.py", line 437, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPSConnectionPool(host='172.16.0.4', port=443): Max retries exceeded with url: //sdk/vimServiceVersions.xml (Caused by NewConnectionError('<requests.packages.urllib3.connection.VerifiedHTTPSConnection object at 0x10a712a50>: Failed to establish a new connection: [Errno 60] Operation timed out',))
+
+INFO 2016-06-17 15:14:22,000 tasks 89512 140735228776448 /Users/tao-xu/Downloads/vCenter/paas/applications/stat/tasks.py 84 vm_to_tpl start vm:None to tpl:CDS-OS-Redhat5.9-64bit-General-V00284716-33b4-11e6-bc0e-507b9d5bc407
+INFO 2016-06-17 15:15:37,684 tasks 89512 140735228776448 /Users/tao-xu/Downloads/vCenter/paas/applications/stat/tasks.py 111 vm_to_tpl vm_to_tpl when catch exception:Traceback (most recent call last):
+  File "/Users/tao-xu/Downloads/vCenter/paas/applications/stat/tasks.py", line 86, in vm_to_tpl
+    datacenter_name=data_center, cluster=cluster, datastore=data_store)
+  File "/Users/tao-xu/Downloads/vCenter/paas/libs/vcenter.py", line 318, in vm_to_template
+    si = connect_vcenter(host=host, username=username, password=password)
+  File "/Users/tao-xu/Downloads/vCenter/paas/libs/vcenter.py", line 133, in connect_vcenter
+    si = SmartConnect(host=host, user=username, pwd=password, port=443, sslContext=CONTEXT)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/pyVim/connect.py", line 663, in SmartConnect
+    sslContext)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/pyVim/connect.py", line 552, in __FindSupportedVersion
+    sslContext)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/pyVim/connect.py", line 472, in __GetServiceVersionDescription
+    tree = __GetElementTreeFromUrl(url, sslContext)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/pyVim/connect.py", line 438, in __GetElementTreeFromUrl
+    sock = requests.get(url, verify=False)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/requests/api.py", line 67, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/requests/api.py", line 53, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/requests/sessions.py", line 468, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/requests/sessions.py", line 576, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/requests/adapters.py", line 437, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPSConnectionPool(host='172.16.0.4', port=443): Max retries exceeded with url: //sdk/vimServiceVersions.xml (Caused by NewConnectionError('<requests.packages.urllib3.connection.VerifiedHTTPSConnection object at 0x10a712810>: Failed to establish a new connection: [Errno 60] Operation timed out',))
+
+INFO 2016-06-17 15:50:53,413 tasks 89512 140735228776448 /Users/tao-xu/Downloads/vCenter/paas/applications/stat/tasks.py 84 vm_to_tpl start vm:None to tpl:CDS-OS-Redhat5.9-64bit-General-V00284716-33b4-11e6-bc0e-507b9d5bc407
+INFO 2016-06-17 15:52:09,292 tasks 89512 140735228776448 /Users/tao-xu/Downloads/vCenter/paas/applications/stat/tasks.py 111 vm_to_tpl vm_to_tpl when catch exception:Traceback (most recent call last):
+  File "/Users/tao-xu/Downloads/vCenter/paas/applications/stat/tasks.py", line 86, in vm_to_tpl
+    datacenter_name=data_center, cluster=cluster, datastore=data_store)
+  File "/Users/tao-xu/Downloads/vCenter/paas/libs/vcenter.py", line 318, in vm_to_template
+    si = connect_vcenter(host=host, username=username, password=password)
+  File "/Users/tao-xu/Downloads/vCenter/paas/libs/vcenter.py", line 133, in connect_vcenter
+    si = SmartConnect(host=host, user=username, pwd=password, port=443, sslContext=CONTEXT)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/pyVim/connect.py", line 663, in SmartConnect
+    sslContext)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/pyVim/connect.py", line 552, in __FindSupportedVersion
+    sslContext)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/pyVim/connect.py", line 472, in __GetServiceVersionDescription
+    tree = __GetElementTreeFromUrl(url, sslContext)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/pyVim/connect.py", line 438, in __GetElementTreeFromUrl
+    sock = requests.get(url, verify=False)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/requests/api.py", line 67, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/requests/api.py", line 53, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/requests/sessions.py", line 468, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/requests/sessions.py", line 576, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/tao-xu/.virtualenvs/test_vcenter/lib/python2.7/site-packages/requests/adapters.py", line 437, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPSConnectionPool(host='172.16.0.4', port=443): Max retries exceeded with url: //sdk/vimServiceVersions.xml (Caused by NewConnectionError('<requests.packages.urllib3.connection.VerifiedHTTPSConnection object at 0x10a712710>: Failed to establish a new connection: [Errno 60] Operation timed out',))
+
+INFO 2016-06-17 16:02:24,367 tasks 89512 140735228776448 /Users/tao-xu/Downloads/vCenter/paas/applications/stat/tasks.py 84 vm_to_tpl start vm:None to tpl:CDS-OS-Redhat5.9-64bit-General-V00284716-33b4-11e6-bc0e-507b9d5bc407
+INFO 2016-06-17 16:11:56,440 tasks 89512 140735228776448 /Users/tao-xu/Downloads/vCenter/paas/applications/stat/tasks.py 84 vm_to_tpl start vm:None to tpl:CDS-OS-Redhat5.9-64bit-General-V00284716-33b4-11e6-bc0e-507b9d5bc407
+INFO 2016-06-17 16:12:35,563 tasks 89512 140735228776448 /Users/tao-xu/Downloads/vCenter/paas/applications/stat/tasks.py 84 vm_to_tpl start vm:None to tpl:CDS-OS-Redhat5.9-64bit-General-V00284716-33b4-11e6-bc0e-507b9d5bc407
+INFO 2016-06-17 16:35:30,490 tasks 89512 140735228776448 /Users/tao-xu/Downloads/vCenter/paas/applications/stat/tasks.py 84 vm_to_tpl start vm:1000008406-centos6.364-20160617161939-TFVDTYCD to tpl:CDS-OS-CentOS6.3-64bit-General-V6cac2d82-3466-11e6-a02c-507b9d5bc407
+INFO 2016-06-17 16:36:46,467 tasks 89512 140735228776448 /Users/tao-xu/Downloads/vCenter/paas/applications/stat/tasks.py 91 vm_to_tpl template_id is 5c5f4190-a3dd-431b-82e7-ebc5ea168ed7
+INFO 2016-06-17 16:47:43,754 tasks 89512 140735228776448 /Users/tao-xu/Downloads/vCenter/paas/applications/stat/tasks.py 84 vm_to_tpl start vm:None to tpl:CDS-OS-CentOS6.3-64bit-General-V8b07260c-3465-11e6-a60e-507b9d5bc407
+INFO 2016-06-17 16:50:17,844 tasks 89512 140735228776448 /Users/tao-xu/Downloads/vCenter/paas/applications/stat/tasks.py 84 vm_to_tpl start vm:None to tpl:CDS-OS-CentOS6.3-64bit-General-V6cac2d82-3466-11e6-a02c-507b9d5bc407

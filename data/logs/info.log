@@ -1,0 +1,5 @@
+INFO 2016-06-28 15:58:47,987 vcenter 47011 140735228776448 /Users/tao-xu/Downloads/vCenter/p2p_pass/libs/vcenter.py 45 waittask task is doing
+INFO 2016-06-28 15:58:50,000 vcenter 47011 140735228776448 /Users/tao-xu/Downloads/vCenter/p2p_pass/libs/vcenter.py 45 waittask task is doing
+INFO 2016-06-28 15:58:52,011 vcenter 47011 140735228776448 /Users/tao-xu/Downloads/vCenter/p2p_pass/libs/vcenter.py 45 waittask task is doing
+INFO 2016-06-28 15:58:54,030 vcenter 47011 140735228776448 /Users/tao-xu/Downloads/vCenter/p2p_pass/libs/vcenter.py 49 waittask task is success
+INFO 2016-06-28 15:58:54,037 vcenter 47011 140735228776448 /Users/tao-xu/Downloads/vCenter/p2p_pass/libs/vcenter.py 434 destroy delete tpl_task is doing
