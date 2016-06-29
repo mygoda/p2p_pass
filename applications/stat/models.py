@@ -219,4 +219,10 @@ class Task(models.Model):
         elif self.status == "deploy_fault":
             self.status = "fault"
 
+        elif self.status == "torrent_fault":
+            self.status = "fault"
+
+        elif self.status == "p2p_fault":
+            self.status = "fault"
+
         return super(Task, self).save(force_insert, force_update, using, update_fields)

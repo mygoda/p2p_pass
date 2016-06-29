@@ -41,8 +41,8 @@ def get_obj(content, vimtype, name):
 
 def waittask(task, actionName='job', hideResult=False):
 
-    while task.info.state == vim.TaskInfo.State.running:
-        logger.info("task is doing")
+    while task.info.state == vim.TaskInfo.State.running or task.info.state == vim.TaskInfo.State.queued:
+        logger.info("task status is %s" % task.info.state)
         time.sleep(2)
 
     if task.info.state == vim.TaskInfo.State.success:
@@ -282,9 +282,16 @@ def clone(template_name, vm_name, content, datacenter_name, datastore, cluster):
             logger.info("get tpl obj success")
             task = _clone_vm(content, template, vm_name, datacenter_name, "", datastore, cluster, "", poweron)
             waittask(task, "wait clone task")
-            if vm_state:
-                op_vm(vm_obj=template, action="on")
-            return 1
+            logger.info("clone %s is complete task status is %s" % (vm_name, task.info.state))
+            has_tpl = get_obj(content, [vim.VirtualMachine], vm_name)
+            if has_tpl:
+                logger.info("task success and vm:%s found in vcenter" % vm_name)
+                if vm_state:
+                    op_vm(vm_obj=template, action="on")
+                return 1
+            else:
+                logger.info("task success and vm:%s not found in vcenter" % vm_name)
+                return 0
         else:
             return 0
     except Exception as e:
@@ -371,22 +378,22 @@ def filter_stat_data(data, filter_type):
     if filter_type == "hours":
         # 对于一天之内的需要
         interval = len(data) / 4
-        filter_data.append(float(data[0]))
-        filter_data.append(float(data[interval]))
-        filter_data.append(float(data[interval + interval]))
-        filter_data.append(float(data[interval * 3]))
-        filter_data.append(float(data[-1]))
+        filter_data.append(round(float(data[0]), 2))
+        filter_data.append(round(float(data[interval]), 2))
+        filter_data.append(round(float(data[interval + interval]), 2))
+        filter_data.append(round(float(data[interval * 3]), 2))
+        filter_data.append(round(float(data[-1]), 2))
         logger.info(filter_data)
         return filter_data
     else:
         # 只返回天的情况
         start = 0
-        filter_data.append(float(data[0]))
+        filter_data.append(round(float(data[0]), 2))
         interval = len(data) / 8
         for i in range(8):
             start += interval
-            filter_data.append(float(start))
-        filter_data.append(float(data[-1]))
+            filter_data.append(round(float(data[start]), 2))
+        filter_data.append(round(float(data[-1]), 2))
         return filter_data
 
 

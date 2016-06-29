@@ -24,10 +24,7 @@ def create_ova(host, port, username, password, datacenter, vm_name, task_id, ovf
     }
 
     url = "http://%s:%s/api/ovas/" % (ovf_host, port)
-    print(url)
-    print(data)
     respone = requests.post(url, data=data)
-    print(respone.content)
     if respone.ok:
         json_data = respone.json()
         if json_data.get("status") == "ok":
@@ -68,9 +65,7 @@ def deploy_ova(host, port, username, password, datacenter, vm_name, datastore, c
     }
 
     url = "http://%s:%s/api/vms/" % (ovf_host, port)
-    print(url)
     respone = requests.post(url, data=data)
-    print(respone.content)
     if respone.ok:
         json_data = respone.json()
         if json_data.get("status") == "ok":
