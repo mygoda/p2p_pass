@@ -127,7 +127,7 @@ def vm_to_tpl(host, username, password, vm_name, template_name, params, data_cen
     except vim.fault.InvalidPowerState:
         logger.info("vm_to_tpl when catch power state invalid:%s" % traceback.format_exc())
         now_task.status = "success"
-        now_task.result['template_id'] = template_id
+        now_task.result['template_id'] = template_id if template_id else ""
         now_task.save()
     except Exception as e:
         logger.info("vm_to_tpl when catch exception:%s" % traceback.format_exc())

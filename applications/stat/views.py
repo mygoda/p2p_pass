@@ -244,6 +244,7 @@ class NewTemplateView(CsrfExemptMixin, View):
             'des_site_id': des_site_id,
             "customer_id": customer_id,
             "template_name": template_name,
+            "params": params,
         }
 
         task = Task(task_id=task_id, params=data)
