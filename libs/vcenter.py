@@ -281,6 +281,7 @@ def clone(template_name, vm_name, content, datacenter_name, datastore, cluster):
             vm_state = check_vm_status(template)
             logger.info("get tpl obj success")
             task = _clone_vm(content, template, vm_name, datacenter_name, "", datastore, cluster, "", poweron)
+            time.sleep(2)
             waittask(task, "wait clone task")
             logger.info("clone %s is complete task status is %s" % (vm_name, task.info.state))
             has_tpl = get_obj(content, [vim.VirtualMachine], vm_name)
@@ -354,6 +355,7 @@ def add_template(template_name, params):
     params["name"] = template_name
     params["template_type"] = 'private'
     params["vmware_tool"] = True
+    params["product_type"] = ""
     params["template_id"] = str(uuid.uuid4())
 
     try:

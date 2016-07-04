@@ -64,14 +64,11 @@ class VmStatView(CsrfExemptMixin, View):
         vm_name = data.get("vm_name")
         pod_name = data.get("pod_name")
         stat_type = ""
-        date_from_to = data.get("date_from_to")
-        pattern = re.compile(r"^\d{4}(\.)\d{1,2}\1\d{1,2} - \d{4}(\.)\d{1,2}\1\d{1,2}$")
-        if not pattern.search(date_from_to):
-            legal = False
-        start = date_from_to.split(' - ')[0]
-        start = self.get_date(start)
-        end = date_from_to.split(' - ')[1]
-        end = self.get_date(end)
+        date_to = data.get("date_to")
+        date_from = data.get("date_from")
+
+        start = self.get_date(date_from)
+        end = self.get_date(date_to)
         site = Vcenter.objects.get(site=pod_name)
         host = site.host
         username = site.username
@@ -81,7 +78,8 @@ class VmStatView(CsrfExemptMixin, View):
         })
         stat_item.save()
         now_stat_id = stat_item.id
-        vm_stat.delay(host=host, username=username, password=password, vm_name=vm_name, vm_stat_id=now_stat_id, start=start,
+        vm_stat.delay(host=host, username=username, password=password, vm_name=vm_name, vm_stat_id=now_stat_id,
+                      start=start,
                       end=end, stat_type=stat_type)
         json_data = {
             "stat_id": now_stat_id
