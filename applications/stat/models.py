@@ -203,6 +203,9 @@ class Task(models.Model):
             des_site_id = self.params["des_site_id"]
             if src_site_id == des_site_id:
                 logger.info("just for clone to ova tpl is %s" % self.params["template_name"])
+                template_id = add_template(template_name=self.params["template_name"], params=self.params["params"])
+                logger.info("add template task:%s to core success tpl_id is %s" % (self.task_id, template_id))
+                self.result["template_id"] = template_id
                 self.status = "success"
             else:
                 logger.info("just for p2p to ova tpl is %s" % self.params["template_name"])
