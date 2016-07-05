@@ -88,10 +88,7 @@ def vm_to_tpl(host, username, password, vm_name, template_name, params, data_cen
         if action_type == "p2p":
             # 直接进行分发
             logger.info("vm_name:%s is just to p2p not ovftool" % template_name)
-            vcenter = Vcenter.objects.get(site_id=src_site_id)
-            status = create_ova(host=host, username=username, password=password, datacenter=data_center, vm_name=template_name, port=vcenter.ovf_agent_port,
-                                    ovf_host=vcenter.ovf_agent_host, task_id=now_task.task_id)
-            now_task.status = "start_ovf" if status else "ovf_fault"
+            now_task.status = "ovf_success"
             now_task.save()
             return 1
 
@@ -107,10 +104,16 @@ def vm_to_tpl(host, username, password, vm_name, template_name, params, data_cen
 
         if is_success == 1:
             if src_site_id == des_site_id:
-                template_id = add_template(template_name, params)
-                logger.info("template_id is %s" % template_id)
-                now_task.status = "success"
-                now_task.result['template_id'] = template_id if template_id else "11111111111111"
+                logger.info("start to ova this tpl is %s" % template_name)
+                vcenter = Vcenter.objects.get(site_id=src_site_id)
+                status = create_ova(host=host, username=username, password=password, datacenter=data_center,
+                                    vm_name=template_name, port=vcenter.ovf_agent_port,
+                                    ovf_host=vcenter.ovf_agent_host, task_id=now_task.task_id)
+                now_task.status = "start_ovf" if status else "ovf_fault"
+                logger.info("req to create tpl: %s success" % template_name)
+                # template_id = add_template(template_name, params)
+                # logger.info("template_id is %s" % template_id)
+                # now_task.result['template_id'] = template_id if template_id else "11111111111111"
                 now_task.save()
                 return 1
             else:

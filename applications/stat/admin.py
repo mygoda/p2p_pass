@@ -14,6 +14,10 @@ from applications.stat.models import VmStat, Vcenter,Task
 # class VmStatAdmin(admin.ModelAdmin):
 #
 #     list_display = ["vm_name"]
+class TaskAdmin(admin.ModelAdmin):
+
+    list_display = [""]
+
 
 admin.site.register(VmStat)
 admin.site.register(Vcenter)

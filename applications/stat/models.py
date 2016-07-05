@@ -199,9 +199,16 @@ class Task(models.Model):
              update_fields=None):
         if self.status == "ovf_success":
             # 开始 p2p 分发
-            success = self.start_distribute()
-            if not success:
-                self.status = "fault"
+            src_site_id = self.params["src_site_id"]
+            des_site_id = self.params["des_site_id"]
+            if src_site_id == des_site_id:
+                logger.info("just for clone to ova tpl is %s" % self.params["template_name"])
+                self.status = "success"
+            else:
+                logger.info("just for p2p to ova tpl is %s" % self.params["template_name"])
+                success = self.start_distribute()
+                if not success:
+                    self.status = "fault"
 
         elif self.status == "ovf_fault":
             # ovf 错误
