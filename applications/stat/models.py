@@ -210,6 +210,7 @@ class Task(models.Model):
             else:
                 logger.info("just for p2p to ova tpl is %s" % self.params["template_name"])
                 success = self.start_distribute()
+                self.status = "start_p2p"
                 if not success:
                     self.status = "fault"
 

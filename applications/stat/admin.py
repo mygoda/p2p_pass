@@ -16,9 +16,13 @@ from applications.stat.models import VmStat, Vcenter,Task
 #     list_display = ["vm_name"]
 class TaskAdmin(admin.ModelAdmin):
 
-    list_display = [""]
+    list_display = ["task_id", "status", "created_at"]
+
+    list_filter = ["status"]
+
+    search_fields = ["task_id"]
 
 
 admin.site.register(VmStat)
 admin.site.register(Vcenter)
-admin.site.register(Task)
+admin.site.register(Task, TaskAdmin)

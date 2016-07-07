@@ -414,7 +414,7 @@ def datastore_info(host, username, password, datastore):
 
     capacity = datastore_obj.summary.capacity / 1024 / 1024 / 1024
 
-    free_space = datastore_obj.info.freeSpace
+    free_space = datastore_obj.info.freeSpace / 1024 / 1024 / 1024
 
     return capacity, free_space
 

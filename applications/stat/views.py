@@ -210,7 +210,7 @@ class NewTemplateView(CsrfExemptMixin, View):
         des_site_id = data.get("des_site_id")
         src_site = Vcenter.objects.get(site_id=src_site_id)
         des_site = Vcenter.objects.get(site_id=des_site_id)
-        if not des_site.can_tpl() and src_site.can_tpl():
+        if not des_site.can_tpl() and not src_site.can_tpl():
 
             result = {"msg": u"源平台/目的平台 vcenter 模板存储空间小于100G, 不能创建模板 src:%s, des:%s" % (src_site_id, des_site_id)}
 
