@@ -227,9 +227,6 @@ class Task(models.Model):
         elif self.status == "deploy_success":
             # to add tpl to core
             logger.info("deploy template success add template:%s" % self.params["template_name"])
-            template_id = add_template(template_name=self.params["template_name"], params=self.params["params"])
-            logger.info("add template task:%s to core success tpl_id is %s" % (self.task_id, template_id))
-            self.result["template_id"] = template_id
             self.status = "success"
 
         elif self.status == "deploy_fault":
